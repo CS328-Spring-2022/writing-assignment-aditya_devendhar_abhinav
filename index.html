@@ -14533,35 +14533,35 @@ all of MD as it is not optimized for dense, information rich UIs.
     </p>
     <h1>
      <center>
-      Topic Name
+      The Story of India - Literacy Rate
      </center>
     </h1>
     <h4>
      <center>
       <a href="https://author1.github.io/" style="text-decoration:none">
-       Author 1
+       Aditya Tare
       </a>
       , IIT Gandhinagar,
       <a href="mailto:&lt;author1&gt;@iitgn.ac.in" style="text-decoration:none">
-       author1@iitgn.ac.in
+       tare.aditya@iitgn.ac.in
       </a>
       <br/>
       <br/>
       <a href="https://author2.github.io/" style="text-decoration:none">
-       Author 2
+       B.Devendhar
       </a>
       , IIT Gandhinagar,
       <a href="mailto:&lt;author2&gt;@iitgn.ac.in" style="text-decoration:none">
-       author2@iitgn.ac.in
+       devendhar.b@iitgn.ac.in
       </a>
       <br/>
       <br/>
       <a href="https://author3.github.io/" style="text-decoration:none">
-       Author 3
+       Abhinav singh
       </a>
       , IIT Gandhinagar,
       <a href="mailto:&lt;author3&gt;@iitgn.ac.in" style="text-decoration:none">
-       author3@iitgn.ac.in
+       abhinav.singh@iitgn.ac.in
       </a>
      </center>
     </h4>
@@ -14574,6 +14574,731 @@ all of MD as it is not optimized for dense, information rich UIs.
     <p>
      <a href="https://github.com/&lt;repo_user&gt;/&lt;repo_name&gt;">
       <img alt="Repo" src="https://img.shields.io/badge/GitHub-&lt;repo_name&gt;-brightgreen"/>
+     </a>
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     The percentage of a population in a certain country/state that can read and write in a specific age group is literacy of that particular country/state. The adult literacy rate applies to those aged above 15, the junior literacy rate to those aged 15 to 24, and the older literacy rate to those aged 65 and above. It's usually tested by how well you can understand a brief, simplified statement about everyday life. Literacy covers numeracy in general, and measuring may include a basic arithmetic skill test. Functional literacy, a more complete measure of literacy tested on a continuous scale in which many competency levels may be established, should be separated from the literacy rate and the number of literates.
+    </p>
+    <p>
+     Literacy and education levels are important measures of a society's level of growth. Literacy is widely linked to major features of modern civilization, such as urbanization, industry, communication, and trade. Literacy is a crucial component of an individual's entire development since it allows them to better understand and respond to their social, political, and cultural surroundings. Higher levels of education and literacy result in increased awareness, as well as improvements in economic and social situations. It works as a tool for social upliftment, increasing the returns on investment in almost every aspect of development, including population management, health, cleanliness, environmental degradation control, and the employment of the poor.
+    </p>
+    <p>
+     Literacy is a requirement for education and a weapon for empowerment.The more literate people, the more conscious of career opportunities and engagement in the information economy. Further, literacy can lead to increased health awareness and greater engagement in the community's cultural and economic well-being. After independence, literacy levels improved greatly, and nearly two-thirds of our people were literate today. However, increases in literacy rates must engage with the Indian population's even now growth rate.  Literacy levels differ significantly by gender, region, and age. Lets walk through statistical data obtained from dataset uploaded by Govt. of India for the literacy rate for various categories over the period from 1991 to 2011.
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [4]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#Linear Algebra</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#To Wrok WIth Data</span>
+<span class="c1">## I am going to use plotly for visualizations. It creates really cool and interective plots.</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="c1"># Just in case.</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span> <span class="c1">#Easy way to plot charts</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span> <span class="c1">#Does the same thing. Gives more options.</span>
+<span class="kn">import</span> <span class="nn">plotly</span> <span class="k">as</span> <span class="nn">ply</span> <span class="c1"># The whole package</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span> <span class="c1">#As the name suggests, for subplots.</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [6]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/data.csv'</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+      <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+       <div>
+        <style scoped="">
+         .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+        </style>
+        <table border="1" class="dataframe">
+         <thead>
+          <tr style="text-align: right;">
+           <th>
+           </th>
+           <th>
+            All India/State/Union Territory
+           </th>
+           <th>
+            1991 - Male
+           </th>
+           <th>
+            1991 - Female
+           </th>
+           <th>
+            1991 - Persons
+           </th>
+           <th>
+            2001 - Male
+           </th>
+           <th>
+            2001 - Female
+           </th>
+           <th>
+            2001 - Persons
+           </th>
+           <th>
+            2011 - Rural - Male
+           </th>
+           <th>
+            2011 - Rural - Female
+           </th>
+           <th>
+            2011 - Rural - Person
+           </th>
+           <th>
+            2011 - Urban - Male
+           </th>
+           <th>
+            2011 - Urban - Female
+           </th>
+           <th>
+            2011 - Urban - Persons
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <th>
+            0
+           </th>
+           <td>
+            All India
+           </td>
+           <td>
+            52
+           </td>
+           <td>
+            64
+           </td>
+           <td>
+            39
+           </td>
+           <td>
+            65
+           </td>
+           <td>
+            75
+           </td>
+           <td>
+            54
+           </td>
+           <td>
+            77
+           </td>
+           <td>
+            58
+           </td>
+           <td>
+            68
+           </td>
+           <td>
+            89
+           </td>
+           <td>
+            79
+           </td>
+           <td>
+            84
+           </td>
+          </tr>
+          <tr>
+           <th>
+            1
+           </th>
+           <td>
+            Andhra Pradesh
+           </td>
+           <td>
+            44
+           </td>
+           <td>
+            55
+           </td>
+           <td>
+            33
+           </td>
+           <td>
+            61
+           </td>
+           <td>
+            70
+           </td>
+           <td>
+            50
+           </td>
+           <td>
+            69
+           </td>
+           <td>
+            52
+           </td>
+           <td>
+            60
+           </td>
+           <td>
+            86
+           </td>
+           <td>
+            74
+           </td>
+           <td>
+            80
+           </td>
+          </tr>
+          <tr>
+           <th>
+            2
+           </th>
+           <td>
+            Arunachal Pradesh
+           </td>
+           <td>
+            42
+           </td>
+           <td>
+            52
+           </td>
+           <td>
+            30
+           </td>
+           <td>
+            54
+           </td>
+           <td>
+            64
+           </td>
+           <td>
+            44
+           </td>
+           <td>
+            67
+           </td>
+           <td>
+            52
+           </td>
+           <td>
+            60
+           </td>
+           <td>
+            88
+           </td>
+           <td>
+            77
+           </td>
+           <td>
+            83
+           </td>
+          </tr>
+          <tr>
+           <th>
+            3
+           </th>
+           <td>
+            Assam
+           </td>
+           <td>
+            53
+           </td>
+           <td>
+            62
+           </td>
+           <td>
+            43
+           </td>
+           <td>
+            63
+           </td>
+           <td>
+            71
+           </td>
+           <td>
+            55
+           </td>
+           <td>
+            75
+           </td>
+           <td>
+            63
+           </td>
+           <td>
+            69
+           </td>
+           <td>
+            92
+           </td>
+           <td>
+            85
+           </td>
+           <td>
+            89
+           </td>
+          </tr>
+          <tr>
+           <th>
+            4
+           </th>
+           <td>
+            Bihar
+           </td>
+           <td>
+            38
+           </td>
+           <td>
+            51
+           </td>
+           <td>
+            22
+           </td>
+           <td>
+            47
+           </td>
+           <td>
+            60
+           </td>
+           <td>
+            33
+           </td>
+           <td>
+            70
+           </td>
+           <td>
+            49
+           </td>
+           <td>
+            60
+           </td>
+           <td>
+            83
+           </td>
+           <td>
+            71
+           </td>
+           <td>
+            77
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [7]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">India</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'All India/State/Union Territory'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'All India'</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [8]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">In</span> <span class="o">=</span> <span class="n">India</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">13</span><span class="p">:</span><span class="mi">3</span><span class="p">,:]</span>
+<span class="n">In</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">In</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Measure'</span><span class="p">,</span> <span class="s1">'Value'</span><span class="p">]</span>
+<span class="n">In</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+      <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+       <div>
+        <style scoped="">
+         .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+        </style>
+        <table border="1" class="dataframe">
+         <thead>
+          <tr style="text-align: right;">
+           <th>
+           </th>
+           <th>
+            Measure
+           </th>
+           <th>
+            Value
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <th>
+            0
+           </th>
+           <td>
+            1991 - Persons
+           </td>
+           <td>
+            39
+           </td>
+          </tr>
+          <tr>
+           <th>
+            1
+           </th>
+           <td>
+            2001 - Persons
+           </td>
+           <td>
+            54
+           </td>
+          </tr>
+          <tr>
+           <th>
+            2
+           </th>
+           <td>
+            2011 - Rural - Person
+           </td>
+           <td>
+            68
+           </td>
+          </tr>
+          <tr>
+           <th>
+            3
+           </th>
+           <td>
+            2011 - Urban - Persons
+           </td>
+           <td>
+            84
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [9]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span> <span class="n">x</span><span class="o">=</span><span class="n">In</span><span class="p">[</span><span class="s1">'Measure'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">In</span><span class="p">[</span><span class="s1">'Value'</span><span class="p">],</span> <span class="n">marker_color</span> <span class="o">=</span> <span class="s2">"lightsalmon"</span><span class="p">),</span>
+    <span class="c1">#go.Bar(name='2001 - Persons', x=In['Measure'], y=In['Value'], marker_color='rgb(26, 118, 255)'),</span>
+    <span class="c1">#go.Bar(name='2011 - Rural - Person', x=In['Measure'], y=In['Value'], marker_color='rgb(26, 58, 150)'),</span>
+    <span class="c1">#go.Bar(name='2011 - Urban - Persons', x=In['Measure'], y=In['Value'], marker_color='rgb(26, 78, 205)')</span>
+<span class="p">])</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [10]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Overall Literacy Rate in India (1991 - 2011):'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     The data represent the education pace of India for various classes as displayed above in the visual chart. The literacy rate of the populace matured over 7 years in 2001 was 54% while it was just 39% in the year 1991. The development has been a lot quicker contrasted with that of the earlier decade since the literacy rate expanded by 15% rate focuses somewhere in the range of 1991 and 2001. The sped-up development during 1991-2001 can be considered as an incredible accomplishment. One more noteworthy component of the outcomes on proficiency in 2001 statistics is that, interestingly, the quantity of non-literates declined somewhere in the range of 1991 and 2001, rather than expanding. The speed up development during 1991-2001 can be considered as an incredible accomplishment. One more surprising component of the outcomes on literacy in the 2001 enumeration is that the quantity of non-literates declined somewhere in the range of 1991 and 2001. 
+The literacy rate varies across the states as shown in fig-2. Kerala stays on the top with around 88% literacy rate, Bihar is at the base with  only 33% (Data for J&amp;k is not given for the year 1991) . In 1991 likewise, it had the most Minimum Literacy rate of  just 22% among the states and Union Territories across India. Many have gained enormous headway while in others the advancement has been fairly late.
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [11]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">nd</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
+<span class="n">nd1</span>  <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'1991 - Persons'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nd2</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'2001 - Persons'</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [12]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'1991'</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">nd1</span><span class="p">[</span><span class="s1">'All India/State/Union Territory'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">nd1</span><span class="p">[</span><span class="s1">'1991 - Persons'</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'2001'</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">nd2</span><span class="p">[</span><span class="s1">'All India/State/Union Territory'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">nd2</span><span class="p">[</span><span class="s1">'2001 - Persons'</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">)</span>
+<span class="p">])</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [13]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">'group'</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Total Literacy Rate Across Nation During 1991 and 2001 :'</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     The main increment has occurred in Rajasthan, Madhya Pradesh, Chhattisgarh, Andhra Pradesh and Uttar Pradesh as can be observed in the fig-2. Orissa and Meghalaya additionally gained huge headway, however not in a similar way as a few different states. Because in many states like Rajasthan, Madhya Pradesh have started out many projects related to education, which has apparently made a huge impact in Education system. Also if we see in the figure even the states like uttaranchal  Pradesh and nagaland are way ahead of states like uttar pradesh, even though they are economically weaker states comparatively, have been relatively better in education.
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [14]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">nd3</span>  <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'2011 - Rural - Person'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">nd4</span> <span class="o">=</span> <span class="n">nd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'2011 - Urban - Persons'</span><span class="p">],</span> <span class="n">ascending</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [15]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig1</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'2011 - Rural '</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">nd3</span><span class="p">[</span><span class="s1">'All India/State/Union Territory'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">nd3</span><span class="p">[</span><span class="s1">'2011 - Rural - Person'</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'2011 - Urban '</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">nd4</span><span class="p">[</span><span class="s1">'All India/State/Union Territory'</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">nd4</span><span class="p">[</span><span class="s1">'2011 - Urban - Persons'</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'markers'</span><span class="p">)</span>
+<span class="p">])</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+   <div class="jp-Cell-inputWrapper">
+    <div class="jp-InputArea jp-Cell-inputArea">
+     <div class="jp-InputPrompt jp-InputArea-prompt">
+      In [16]:
+     </div>
+     <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+      <div class="CodeMirror cm-s-jupyter">
+       <div class="highlight hl-ipython3">
+        <pre><span></span><span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">'group'</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'Total Literacy Rate Across Nation In Rural And Urban During 2011 :'</span><span class="p">)</span>
+<span class="n">fig1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="jp-Cell-outputWrapper">
+    <div class="jp-OutputArea jp-Cell-outputArea">
+     <div class="jp-OutputArea-child">
+      <div class="jp-OutputPrompt jp-OutputArea-prompt">
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     The above fig shows the statistics of rural and urban areas during 2011. As always kerala remains at the tops    in both rural and urban sectors with literacy rates of 93% and 95% respectively. This time Andhra Pradesh is at the base in the rural sector with just 60% literacy rate, but made significant improvement in the urban sector with literacy rate of around 80%. States Like Meghalaya, Mizoram and D &amp; N Haveli achieved more than 90% literacy rate, competitive to Kerala, despite having weak state GDP.  The below fig-4 has shown how literacy rate is spread among the states and Union Territories across India.
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     <img alt="Getting started" src="./data/nowww.png"/>
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     In many states except Bihar and Jharkhand, literacy rate has improved dramatically between 1991 to 2011. It is vital to focus more on the grown-up literacy programs for the huge populace of non-literate people/adults. They comprise around 40% of the absolute grown-up populace (old enough 15+), and that implies a population of  around 230 million non-educated grown-ups. The objective initially fixed for Adult literacy programs was to make 100 million non-educated people literate by somewhere around 1999 or 2000. This target was not accomplished, yet the statistics information show that the effect was much beneath the normal accomplishment. Overall all the states have made great improvement over the decades and will continue to do so in the near future.
+    </p>
+   </div>
+  </div>
+  <div class="jp-Cell-inputWrapper">
+   <div class="jp-InputPrompt jp-InputArea-prompt">
+   </div>
+   <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+    <p>
+     References:
+     <a href="https://www.oxfamindia.org/featuredstories/10-facts-illiteracy-india-you-must-know">
+      https://www.oxfamindia.org/featuredstories/10-facts-illiteracy-india-you-must-know
+     </a>
+     <a href="https://censusindia.gov.in/census_and_you/literacy_and_level_of_education.aspx">
+      https://censusindia.gov.in/census_and_you/literacy_and_level_of_education.aspx
+     </a>
+     www.educationforallinindia.com
+     <a href="https://www.kaggle.com/code/para24/eda-with-plotly/notebook">
+      https://www.kaggle.com/code/para24/eda-with-plotly/notebook
+     </a>
+     <a href="https://www.kaggle.com/datasets/doncorleone92/govt-of-india-literacy-rate">
+      https://www.kaggle.com/datasets/doncorleone92/govt-of-india-literacy-rate
+     </a>
+     <a href="https://www.analyticsvidhya.com/blog/2021/09/how-to-visualise-data-in-maps-using-geopandas/">
+      https://www.analyticsvidhya.com/blog/2021/09/how-to-visualise-data-in-maps-using-geopandas/
+     </a>
+     <a href="https://data.gov.in/catalog/literacy-rate-india-nsso-and-rgi">
+      https://data.gov.in/catalog/literacy-rate-india-nsso-and-rgi
      </a>
     </p>
    </div>
