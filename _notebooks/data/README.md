@@ -1,1 +1,2 @@
-- Place all the data CSV, txt, etc. files in this folder.
+# Maps_with_python
+Jupyter notebook file for different approaches to render maps
